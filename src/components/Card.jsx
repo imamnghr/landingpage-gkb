@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { MessageCircle, Home, Bed, Bath, Car } from "lucide-react";
 
 export default function Cards({
@@ -14,10 +15,27 @@ export default function Cards({
   parkingSpots,
 }) {
   return (
-    <div className="bg-white rounded-2xl shadow-lg overflow-hidden max-w-sm">
-      <div className="relative h-64">
-        <img src={image} alt={title} className="w-full h-full object-cover" />
-        <button className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 rounded-full p-2 hover:bg-opacity-100 transition-all">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      whileHover={{ scale: 1.02 }}
+      className="bg-white rounded-2xl shadow-lg overflow-hidden max-w-sm"
+    >
+      {/* Image Section */}
+      <div className="relative h-64 overflow-hidden">
+        <motion.img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.5 }}
+        />
+        {/* Left Button */}
+        <motion.button
+          whileHover={{ scale: 1.2, rotate: -10 }}
+          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 rounded-full p-2 hover:bg-opacity-100 transition-all"
+        >
           <svg
             className="w-4 h-4"
             fill="none"
@@ -31,8 +49,12 @@ export default function Cards({
               d="M15 19l-7-7 7-7"
             />
           </svg>
-        </button>
-        <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 rounded-full p-2 hover:bg-opacity-100 transition-all">
+        </motion.button>
+        {/* Right Button */}
+        <motion.button
+          whileHover={{ scale: 1.2, rotate: 10 }}
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 rounded-full p-2 hover:bg-opacity-100 transition-all"
+        >
           <svg
             className="w-4 h-4"
             fill="none"
@@ -46,11 +68,16 @@ export default function Cards({
               d="M9 5l7 7-7 7"
             />
           </svg>
-        </button>
+        </motion.button>
       </div>
 
       {/* Orange Header Section */}
-      <div className="bg-[#edad5a] px-4 py-3">
+      <motion.div
+        initial={{ x: -50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+        className="bg-[#edad5a] px-4 py-3"
+      >
         <div className="flex justify-between items-start">
           <div>
             <h3 className="text-white font-cormorant font-bold text-lg font-semibold">
@@ -72,19 +99,33 @@ export default function Cards({
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Price Section */}
-      <div className="flex items-center justify-between px-4 py-4">
-        <span className="text-[#eeae5b] text-3xl font-cormorant font-bold mr-2">Start From</span>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+        className="flex items-center justify-between px-4 py-4"
+      >
+        <span className="text-[#eeae5b] text-3xl font-cormorant font-bold mr-2">
+          Start From
+        </span>
         <div className="text-[#eeae5b] flex flex-col text-center text-sm mt-1">
-          <span className="text-4xl font-bold text-[#eeae5b] font-raleway">{price}</span>
+          <span className="text-4xl font-bold text-[#eeae5b] font-raleway">
+            {price}
+          </span>
           {currency}
         </div>
-      </div>
+      </motion.div>
 
       {/* Property Details */}
-      <div className="bg-[#c6995e] px-4 py-3">
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.5 }}
+        className="bg-[#c6995e] px-4 py-3"
+      >
         <div className="flex items-center justify-center gap-4 text-white text-sm">
           <div className="flex items-center">
             <Home className="w-4 h-4 mr-1" />
@@ -109,15 +150,25 @@ export default function Cards({
             </div>
           )}
         </div>
-      </div>
+      </motion.div>
 
       {/* WhatsApp Button */}
-      <div className="p-4 bg-[#eeae5b]">
-        <button onClick={() => window.open("https://wa.me/628126113855", "_blank")} className="w-full cursor-pointer bg-white border-2 border-white py-3 px-4 rounded-full flex items-center justify-center hover:bg-green-50 transition-colors">
+      <motion.div
+        initial={{ y: 30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
+        className="p-4 bg-[#eeae5b]"
+      >
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => window.open("https://wa.me/628126113855", "_blank")}
+          className="w-full cursor-pointer bg-white border-2 border-white py-3 px-4 rounded-full flex items-center justify-center hover:bg-green-50 transition-colors"
+        >
           <MessageCircle className="w-4 text-[#eeae5b] h-4 mr-2" />
           <span className="font-medium text-[#eeae5b]">Whatsapp</span>
-        </button>
-      </div>
-    </div>
+        </motion.button>
+      </motion.div>
+    </motion.div>
   );
 }
