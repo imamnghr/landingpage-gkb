@@ -3,6 +3,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-cormorant: "Cormorant Garamond", serif;
+  --font-raleway: "Raleway", sans-serif;
+}
+
+.font-cormorant {
+  font-family: var(--font-cormorant);
+}
+
+.font-raleway {
+  font-family: var(--font-raleway);
 }
 
 @theme inline {
