@@ -77,13 +77,12 @@ export default function page() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
         <motion.div
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
+          animate="show"
           variants={fadeInUp}
-          className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4 sm:px-6 md:px-8"
+          className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center text-white px-4 sm:px-6 md:px-8"
         >
           <motion.img
-            src="/Logo-white.png"
+            src="/logo-white.png"
             className="h-20 sm:h-24 md:h-30 mb-4"
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
@@ -107,12 +106,7 @@ export default function page() {
       </section>
 
       {/* Tenant Section */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-      >
+      <motion.section initial="hidden" animate="show" variants={fadeInUp}>
         <div className="flex flex-col md:flex-row">
           <motion.img
             src="images/tenant1.jpeg"
@@ -165,8 +159,7 @@ export default function page() {
       <motion.section
         className="py-6 md:py-0"
         initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
+        animate="show"
         variants={fadeInUp}
       >
         <div className="flex flex-col lg:flex-row">
@@ -207,9 +200,8 @@ export default function page() {
       <motion.section
         className="relative min-h-screen w-full bg-cover bg-center bg-[url(/images/xxi.jpeg)]"
         initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={fadeIn}
+        animate="show"
+        variants={fadeInUp}
       >
         <div className="px-5 sm:px-10 md:px-20 min-h-screen py-6 sm:py-8 md:py-10 flex flex-col justify-between">
           <motion.div variants={fadeInUp}>
@@ -254,9 +246,8 @@ export default function page() {
       <motion.section
         className="relative min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-[url(/images/bg_residential.jpeg)]"
         initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={fadeIn}
+        animate="show"
+        variants={fadeInUp}
       >
         <img src="Logo-Transparant.png" className="w-1/2 sm:w-2/5 md:w-1/3" />
         <h1 className="font-cormorant text-4xl sm:text-6xl md:text-7xl lg:text-9xl text-[#987964] font-extrabold text-center">
@@ -269,8 +260,7 @@ export default function page() {
         <motion.div
           className="flex flex-col sm:flex-row gap-4 w-full px-4"
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
+          animate="show"
           variants={fadeInUp}
         >
           {property.map((item, index) => (
@@ -300,8 +290,7 @@ export default function page() {
         className="relative min-h-screen w-full bg-cover bg-center"
         style={{ backgroundImage: "url('/images/closer.jpeg')" }}
         initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
+        animate="show"
         variants={fadeInUp}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
