@@ -71,7 +71,7 @@ export default function page() {
 
       {/* Hero Section */}
       <section
-        className="relative h-screen w-full bg-cover bg-center"
+        className="relative min-h-screen w-full bg-cover bg-center"
         style={{ backgroundImage: "url('/images/hero.jpeg')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
@@ -124,7 +124,7 @@ export default function page() {
             <h1 className="font-cormorant mb-2 text-3xl sm:text-4xl md:text-5xl font-bold text-center">
               Prestigious Tenant
             </h1>
-            <p className="text-black font-raleway text-justify text-sm sm:text-base">
+            <p className=" font-raleway text-justify text-sm sm:text-base">
               This premium area, with a lineup of prestigious tenants, features
               a stand-alone building concept, offering a classy experience. From
               renowned coffee shops and renowned restaurants to lifestyle
@@ -147,7 +147,7 @@ export default function page() {
             <h1 className="font-cormorant mb-2 text-3xl sm:text-4xl md:text-5xl font-bold text-center">
               LIMITLESS EXPERIENCE AT STELLAR AVENUE
             </h1>
-            <p className="text-black font-raleway text-justify text-sm sm:text-base">
+            <p className=" font-raleway text-justify text-sm sm:text-base">
               Discover an unforgettable experience at Stellar Avenue, the newest
               destination that combines fashion, lifestyle, entertainment, and
               culinary delights all in one place! With a unique natural concept,
@@ -193,7 +193,7 @@ export default function page() {
             <h1 className="font-cormorant mb-2 text-2xl sm:text-3xl md:text-4xl font-extrabold text-center">
               Where Modern Meets Nature.
             </h1>
-            <p className="text-black font-raleway text-justify text-sm sm:text-base">
+            <p className=" font-raleway text-justify text-sm sm:text-base">
               Tenants at Stellar Avenue are ready to provide a new experience
               for you, with friends and family, enjoying delicious dishes and
               refreshing drinks. With a calming natural atmosphere, every moment
@@ -252,7 +252,7 @@ export default function page() {
 
       {/* Residential Header */}
       <motion.section
-        className="relative h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-[url(/images/bg_residential.jpeg)]"
+        className="relative min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-[url(/images/bg_residential.jpeg)]"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
@@ -297,7 +297,7 @@ export default function page() {
 
       {/* Contact Section */}
       <motion.section
-        className="relative h-screen w-full bg-cover bg-center"
+        className="relative min-h-screen w-full bg-cover bg-center"
         style={{ backgroundImage: "url('/images/closer.jpeg')" }}
         initial="hidden"
         whileInView="show"
