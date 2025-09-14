@@ -3,6 +3,7 @@ import Cards from "@/components/Card";
 import React from "react";
 import { Map } from "lucide-react";
 import { motion } from "framer-motion";
+import TenantSection from "@/components/TenantSection";
 
 // Variants animasi reusable
 const fadeInUp = {
@@ -105,97 +106,6 @@ export default function page() {
         </motion.div>
       </section>
 
-      {/* Tenant Section */}
-      <motion.section initial="hidden" animate="show" variants={fadeInUp}>
-        <div className="flex flex-col md:flex-row">
-          <motion.img
-            src="images/tenant1.jpeg"
-            className="w-full md:w-1/2"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.5 }}
-          />
-          <div className="flex px-5 sm:px-8 md:px-10 py-6 md:py-0 flex-col items-center justify-center w-full">
-            <h1 className="font-cormorant mb-2 text-3xl sm:text-4xl md:text-5xl font-bold text-center">
-              Prestigious Tenant
-            </h1>
-            <p className=" font-raleway text-justify text-sm sm:text-base">
-              This premium area, with a lineup of prestigious tenants, features
-              a stand-alone building concept, offering a classy experience. From
-              renowned coffee shops and renowned restaurants to lifestyle
-              essentials, to the largest and most comprehensive department
-              store, everything is gathered in one prestigious destination. With
-              its aesthetically pleasing modern architecture and spacious
-              parking area, Grand Kota Bintang is the prime choice for those
-              seeking comfort, convenience, and a dynamic lifestyle.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-col md:flex-row-reverse">
-          <motion.img
-            src="images/stellar.jpeg"
-            className="w-full md:w-1/2"
-            whileHover={{ scale: 1.05 }}
-          />
-          <div className="flex px-5 sm:px-8 md:px-10 py-6 md:py-0 flex-col items-center justify-center w-full">
-            <h1 className="font-cormorant mb-2 text-3xl sm:text-4xl md:text-5xl font-bold text-center">
-              LIMITLESS EXPERIENCE AT STELLAR AVENUE
-            </h1>
-            <p className=" font-raleway text-justify text-sm sm:text-base">
-              Discover an unforgettable experience at Stellar Avenue, the newest
-              destination that combines fashion, lifestyle, entertainment, and
-              culinary delights all in one place! With a unique natural concept,
-              we present the perfect harmony between modernity and natural
-              beauty. Enjoy the serene atmosphere with refreshing greenery and a
-              calming river. Make Stellar Avenue your first choice for relaxing,
-              shopping, or simply hanging out with friends and family.
-              Experience a different experience with every visit!
-            </p>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Modern Meets Nature Section */}
-      <motion.section
-        className="py-6 md:py-0"
-        initial="hidden"
-        animate="show"
-        variants={fadeInUp}
-      >
-        <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-1/2 px-3 sm:px-0">
-            <div className="flex gap-2 sm:gap-4">
-              <motion.img
-                src="images/modern2.jpeg"
-                className="w-[49%]"
-                whileHover={{ scale: 1.05 }}
-              />
-              <motion.img
-                src="images/modern1.jpeg"
-                className="w-[49%]"
-                whileHover={{ scale: 1.05 }}
-              />
-            </div>
-            <motion.img
-              src="images/modern3.jpeg"
-              className="mt-3 sm:mt-5 w-full"
-              whileHover={{ scale: 1.05 }}
-            />
-          </div>
-          <div className="flex px-5 sm:px-10 lg:px-20 py-6 lg:py-0 flex-col items-center justify-center w-full lg:w-1/2">
-            <h1 className="font-cormorant mb-2 text-2xl sm:text-3xl md:text-4xl font-extrabold text-center">
-              Where Modern Meets Nature.
-            </h1>
-            <p className=" font-raleway text-justify text-sm sm:text-base">
-              Tenants at Stellar Avenue are ready to provide a new experience
-              for you, with friends and family, enjoying delicious dishes and
-              refreshing drinks. With a calming natural atmosphere, every moment
-              at Stellar Avenue feels more special and memorable.
-            </p>
-          </div>
-        </div>
-      </motion.section>
-
       {/* XXI Cinema Section */}
       <motion.section
         className="relative min-h-screen w-full bg-cover bg-center bg-[url(/images/xxi.jpeg)]"
@@ -241,8 +151,7 @@ export default function page() {
           </motion.div>
         </div>
       </motion.section>
-
-      {/* Residential Header */}
+      <TenantSection />
       <motion.section
         className="relative min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-[url(/images/bg_residential.jpeg)]"
         initial="hidden"
