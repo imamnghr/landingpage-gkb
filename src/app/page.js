@@ -294,7 +294,7 @@ export default function page() {
         variants={fadeInUp}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4 sm:px-6">
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center text-white px-4 sm:px-6">
           <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-extrabold font-cormorant mb-6 sm:mb-8 md:mb-10">
             GET MORE CLOSER
           </h1>
