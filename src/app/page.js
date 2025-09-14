@@ -303,6 +303,9 @@ export default function page() {
             Bekasi Barat, Bekasi 17145
           </p>
           <motion.button
+            onClick={() =>
+              window.open("https://maps.app.goo.gl/BU1jUE4FKi8XNWm16", "_blank")
+            }
             whileHover={{ scale: 1.1 }}
             className="flex gap-2 px-4 sm:px-6 md:px-7 rounded py-2 sm:py-3 mb-4 sm:mb-5 bg-[#8dc100] text-sm sm:text-base"
           >
