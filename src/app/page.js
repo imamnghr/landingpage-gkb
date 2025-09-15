@@ -1,9 +1,11 @@
+// app/page.tsx (atau file page kamu)
 "use client";
-import Cards from "@/components/Card";
 import React from "react";
 import { Map } from "lucide-react";
 import { motion } from "framer-motion";
 import TenantSection from "@/components/TenantSection";
+import RoomSlider from "@/components/RoomSLider";
+import Image from "next/image";
 
 // Variants animasi reusable
 const fadeInUp = {
@@ -11,12 +13,7 @@ const fadeInUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
 };
 
-const fadeIn = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 1, ease: "easeOut" } },
-};
-
-export default function page() {
+export default function Page() {
   const tenant_xxi = [
     { url: "images/dcost.jpeg" },
     { url: "images/pepper.jpeg" },
@@ -27,33 +24,9 @@ export default function page() {
     { url: "images/chateraise.jpeg" },
   ];
 
-  const property = [
-    {
-      name: "Marocco",
-      image: "images/maroco.jpeg",
-      bedrooms: 4,
-      bathrooms: 2,
-      parkingSpots: 1,
-      buildingSize: 120,
-      locations: "Bekasi",
-      landSize: 150,
-      price: 6,
-    },
-    {
-      name: "Roma",
-      image: "images/roma.jpeg",
-      bedrooms: 4,
-      bathrooms: 2,
-      parkingSpots: 1,
-      buildingSize: 120,
-      locations: "Bekasi",
-      landSize: 150,
-      price: 6,
-    },
-  ];
-
   return (
-    <div className="flex flex-col w-screen overflow-x-hidden">
+    // NB: overflow-y-auto agar konten bisa discroll jika melebihi viewport
+    <div className="flex flex-col min-h-screen w-full overflow-x-hidden overflow-y-auto">
       {/* Header */}
       <motion.div
         initial={{ y: -100, opacity: 0 }}
@@ -61,7 +34,7 @@ export default function page() {
         transition={{ duration: 0.8 }}
         className="bg-white px-3 sm:px-5 py-3 sm:py-5 flex w-full items-center justify-between"
       >
-        <img src="/Logo-Transparant.png" className="h-10 sm:h-12 md:h-15" />
+        <img src="/Logo-Transparant.png" className="h-10 sm:h-12 md:h-14" />
         <div
           onClick={() => window.open("https://wa.me/628126113855", "_blank")}
           className="font-raleway bg-[#8dc100] px-3 sm:px-4 md:px-5 py-2 sm:py-3 text-sm sm:text-lg md:text-xl text-white cursor-pointer rounded hover:scale-105 transition-transform"
@@ -71,22 +44,30 @@ export default function page() {
       </motion.div>
 
       {/* Hero Section */}
-      <section
+      <motion.section
         className="relative min-h-screen w-full bg-cover bg-center"
         style={{ backgroundImage: "url('/images/hero.jpeg')" }}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+        variants={fadeInUp}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+        {/* overlay harus pointer-events-none supaya tidak memblok scroll/click */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black pointer-events-none"></div>
+
         <motion.div
           initial="hidden"
-          animate="show"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUp}
-          className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center text-white px-4 sm:px-6 md:px-8"
+          className="relative z-20 flex flex-col items-center justify-center min-h-screen text-center text-white px-4 sm:px-6 md:px-8"
         >
           <motion.img
             src="/logo-white.png"
-            className="h-20 sm:h-24 md:h-30 mb-4"
+            className="h-20 sm:h-24 md:h-28 mb-4"
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 1 }}
           />
           <p className="text-sm sm:text-base md:text-lg font-raleway mb-6 px-2 sm:px-4 md:px-5 text-center max-w-4xl">
@@ -98,23 +79,21 @@ export default function page() {
             JABODETABEK area by providing a lifestyle, entertainment, and
             business center that will enhance the economy of Bekasi City. GKB is
             located in a premium area east of Jakarta, with direct access to the
-            JORR toll road leading to Pondok Indah and Kelapa Gading, as well as
-            access from Jalan K.H. Noer Ali (Kalimalang) and Jalan Bintara Raya,
-            which connect to Kasablanka and Kuningan. We are recognized as
-            pioneers of innovative real estate development in Bekasi.
+            JORR toll road...
           </p>
         </motion.div>
-      </section>
+      </motion.section>
 
       {/* XXI Cinema Section */}
       <motion.section
         className="relative min-h-screen w-full bg-cover bg-center bg-[url(/images/xxi.jpeg)]"
         initial="hidden"
-        animate="show"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
         variants={fadeInUp}
       >
         <div className="px-5 sm:px-10 md:px-20 min-h-screen py-6 sm:py-8 md:py-10 flex flex-col justify-between">
-          <motion.div variants={fadeInUp}>
+          <motion.div variants={fadeInUp} className="relative z-20">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-cormorant text-white font-extrabold">
               XXI Le Cinema
             </h1>
@@ -123,23 +102,19 @@ export default function page() {
               className="w-1/2 sm:w-2/5 md:w-1/3 mt-3 sm:mt-5"
             />
             <p className="w-full sm:w-2/3 md:w-1/3 text-justify text-white mt-3 sm:mt-5 font-raleway font-bold text-sm sm:text-base">
-              XXI, present at Grand Kota Bintang, offers more than just a cinema
-              experience, becoming the premier destination for movie lovers to
-              experience unforgettable viewing experiences. With cutting-edge
-              screen technology, stunning surround sound, and premium comfort,
-              every visit to XXI is an emotional journey that brings you closer
-              to the world of the stories you love.
+              XXI, present at Grand Kota Bintang...
             </p>
           </motion.div>
+
           <motion.div
-            className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mt-6"
+            className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mt-6 relative z-20"
             variants={fadeInUp}
           >
             {tenant_xxi.map((item, index) => (
               <motion.div
                 key={index}
                 className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center rounded-full bg-white shadow-md"
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.05 }}
               >
                 <img
                   src={item.url}
@@ -151,59 +126,154 @@ export default function page() {
           </motion.div>
         </div>
       </motion.section>
-      <TenantSection />
+
+      {/* TenantSection (komponen eksternal) */}
+      <div className="relative z-10">
+        <TenantSection />
+      </div>
+
+      {/* Residential Section */}
       <motion.section
         className="relative min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-[url(/images/bg_residential.jpeg)]"
         initial="hidden"
-        animate="show"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
         variants={fadeInUp}
       >
-        <img src="Logo-Transparant.png" className="w-1/2 sm:w-2/5 md:w-1/3" />
-        <h1 className="font-cormorant text-4xl sm:text-6xl md:text-7xl lg:text-9xl text-[#987964] font-extrabold text-center">
-          RESIDENTIAL
-        </h1>
+        <div className="absolute inset-0 bg-black/10 pointer-events-none"></div>
+        <div className="relative z-20 flex flex-col items-center">
+          <img src="Logo-Transparant.png" className="w-1/2 sm:w-2/5 md:w-1/3" />
+          <h1 className="font-cormorant text-4xl sm:text-6xl md:text-7xl lg:text-9xl text-[#987964] font-extrabold text-center">
+            RESIDENTIAL
+          </h1>
+        </div>
       </motion.section>
 
-      {/* Property Cards */}
-      <section className="py-6">
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4 w-full px-4"
-          initial="hidden"
-          animate="show"
-          variants={fadeInUp}
-        >
-          {property.map((item, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 200 }}
+      {/* Maroco Section */}
+      <motion.section
+        className="relative"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
+        <div className="relative min-h-screen w-full flex p-10 justify-between bg-cover bg-center bg-[url(/images/maroco.jpeg)]">
+          <div className="absolute inset-0 z-10 bg-gradient-to-b from-white to-transparent pointer-events-none"></div>
+          <div className="z-20">
+            <p className="text-4xl font-raleway text-black font-extralight">
+              Cluster
+            </p>
+            <h1 className="text-6xl font-cormorant font-extrabold">Maroco</h1>
+          </div>
+          <div className="z-20">
+            <h1 className="text-black font-extrabold text-6xl font-raleway">
+              SOLD 90%
+            </h1>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Roma Section */}
+      <motion.section
+        className="relative"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
+        <div className="relative min-h-screen w-full flex p-10 items-center justify-center flex-col bg-cover bg-center bg-[url(/images/new_rome.jpeg)]">
+          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+          <div className="relative z-20 flex flex-col items-center">
+            <img src="/logo-white.png" className="w-1/3" />
+            <h1 className="text-white text-4xl font-cormorant font-extrabold mt-3">
+              New Residence Cluster
+            </h1>
+            <p className="text-[#e4cbb7] text-6xl mt-3 font-raleway font-extrabold">
+              ROMA
+            </p>
+            <p className="text-[#e4cbb7] mt-3 font-raleway text-center font-bold max-w-3xl px-2 sm:px-5">
+              Discover the timeless charm of living in Cluster Roma...
+            </p>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Luxury Section */}
+      <motion.section
+        className="relative"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
+        <div className="relative min-h-screen w-full flex items-center justify-center bg-cover bg-center bg-[url(/images/fsd-roma.jpg)]">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black pointer-events-none"></div>
+          <div className="relative z-20 text-center max-w-2xl">
+            <h2 className="text-4xl md:text-5xl z-50 font-bold text-[#ffc59e] drop-shadow-sm">
+              Luxury Living Awaits You
+            </h2>
+            <p className="mt-4 text-lg md:text-xl text-[#ffc59e]">
+              Starting from{" "}
+              <span className="font-semibold text-[#ffc59e]">
+                IDR 2 Billion
+              </span>
+            </p>
+            <button
+              onClick={() =>
+                window.open("https://wa.me/628126113855", "_blank")
+              }
+              className="mt-8 px-8 py-3 bg-black text-white rounded-full shadow-lg hover:bg-gray-800 transition"
             >
-              <Cards
-                image={item.image}
-                title={item.name}
-                bathrooms={item.bathrooms}
-                bedrooms={item.bedrooms}
-                location={item.locations}
-                buildingSize={item.buildingSize}
-                parkingSpots={item.parkingSpots}
-                landSize={item.landSize}
-                price={item.price}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+              Book a Visit
+            </button>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Room slider (komponen eksternal) */}
+      <div className="relative z-10">
+        <RoomSlider />
+      </div>
+
+      {/* Layout Section */}
+      <motion.section
+        className="relative"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
+        <div className="relative w-full h-screen overflow-hidden">
+          <Image
+            src="/images/layout.jpg"
+            alt="Background Blur"
+            fill
+            className="object-cover blur-2xl scale-110"
+            priority
+          />
+          <div className="relative w-full h-full flex items-center justify-center">
+            <Image
+              src="/images/layout.jpg"
+              alt="Cluster Roma"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+        </div>
+      </motion.section>
 
       {/* Contact Section */}
       <motion.section
         className="relative min-h-screen w-full bg-cover bg-center"
         style={{ backgroundImage: "url('/images/closer.jpeg')" }}
         initial="hidden"
-        animate="show"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
         variants={fadeInUp}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center text-white px-4 sm:px-6">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black pointer-events-none"></div>
+        <div className="relative z-20 flex flex-col items-center justify-center min-h-screen text-center text-white px-4 sm:px-6">
           <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-extrabold font-cormorant mb-6 sm:mb-8 md:mb-10">
             GET MORE CLOSER
           </h1>
@@ -215,7 +285,7 @@ export default function page() {
             onClick={() =>
               window.open("https://maps.app.goo.gl/BU1jUE4FKi8XNWm16", "_blank")
             }
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.05 }}
             className="flex gap-2 px-4 sm:px-6 md:px-7 rounded py-2 sm:py-3 mb-4 sm:mb-5 bg-[#8dc100] text-sm sm:text-base"
           >
             <Map className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -227,12 +297,13 @@ export default function page() {
           <motion.button
             onClick={() => window.open("https://wa.me/628126113855", "_blank")}
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 px-2 sm:px-5 text-center hover:text-green-400 transition-colors"
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.05 }}
           >
             0812 6113 855
           </motion.button>
         </div>
-        <div className="flex items-center justify-end absolute bottom-0 right-0">
+        {/* footer image — make pointer-events-none so tidak memblok scroll */}
+        <div className="flex items-center justify-end absolute bottom-0 right-0 pointer-events-none">
           <img src="images/footer.png" className="w-1/2" />
         </div>
       </motion.section>
