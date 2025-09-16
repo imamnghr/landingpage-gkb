@@ -167,7 +167,7 @@ export default function Page() {
           </div>
           <div className="z-20">
             <h1 className="text-black font-extrabold text-6xl font-raleway">
-              SOLD 90%
+              SOLD <span className="text-red-500">OUT</span>
             </h1>
           </div>
         </div>
