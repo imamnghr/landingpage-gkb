@@ -299,11 +299,6 @@ export default function Page() {
           <img src="images/footer.png" className="w-1/2" />
         </div>
       </motion.section>
-      <motion.section>
-        <div className="flex items-center justify-end absolute bottom-0 right-0 pointer-events-none">
-          <img src="images/footer.png" className="w-1/2" />
-        </div>
-      </motion.section>
     </div>
   );
 }
