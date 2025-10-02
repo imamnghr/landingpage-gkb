@@ -42,7 +42,6 @@ export default function Page() {
           Get An Offering
         </div>
       </motion.div>
-
       {/* Hero Section */}
       <motion.section
         className="relative min-h-screen w-full bg-cover bg-center"
@@ -83,7 +82,6 @@ export default function Page() {
           </p>
         </motion.div>
       </motion.section>
-
       {/* XXI Cinema Section */}
       <motion.section
         className="relative min-h-screen w-full bg-cover bg-center bg-[url(/images/xxi.jpeg)]"
@@ -126,12 +124,10 @@ export default function Page() {
           </motion.div>
         </div>
       </motion.section>
-
       {/* TenantSection (komponen eksternal) */}
       <div className="relative z-10">
         <TenantSection />
       </div>
-
       {/* Residential Section */}
       <motion.section
         className="relative min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-[url(/images/bg_residential.jpeg)]"
@@ -148,7 +144,6 @@ export default function Page() {
           </h1>
         </div>
       </motion.section>
-
       {/* Maroco Section */}
       <motion.section
         className="relative"
@@ -172,7 +167,6 @@ export default function Page() {
           </div>
         </div>
       </motion.section>
-
       {/* Roma Section */}
       <motion.section
         className="relative"
@@ -197,7 +191,6 @@ export default function Page() {
           </div>
         </div>
       </motion.section>
-
       {/* Luxury Section */}
       <motion.section
         className="relative"
@@ -229,80 +222,84 @@ export default function Page() {
           </div>
         </div>
       </motion.section>
-
       {/* Room slider (komponen eksternal) */}
       <div className="relative z-10">
         <RoomSlider />
       </div>
-
       {/* Layout Section */}
       <motion.section
-        className="relative"
+        className="relative py-20 bg-gradient-to-b from-white via-[#f8f6f2] to-[#e4cbb7]"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
         variants={fadeInUp}
       >
-        <div className="relative w-full h-screen overflow-hidden">
+        <div className="relative w-full max-w-6xl mx-auto rounded-3xl shadow-2xl overflow-hidden">
           <Image
             src="/images/layout.jpg"
-            alt="Background Blur"
-            fill
-            className="object-cover blur-2xl scale-110"
+            alt="Cluster Roma Layout"
+            width={1200}
+            height={700}
+            className="object-cover w-full h-[400px] blur-md scale-105 absolute inset-0 z-0"
             priority
           />
-          <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative z-10 flex items-center justify-center h-[400px]">
             <Image
               src="/images/layout.jpg"
               alt="Cluster Roma"
-              fill
-              className="object-contain"
+              width={900}
+              height={400}
+              className="object-contain rounded-2xl shadow-xl"
               priority
             />
+          </div>
+          <div className="absolute bottom-6 right-8 bg-white/80 px-6 py-3 rounded-xl shadow-lg flex items-center gap-2">
+            <Map className="text-[#987964]" size={28} />
+            <span className="font-cormorant text-lg font-bold text-[#987964]">
+              Cluster Roma Siteplan
+            </span>
           </div>
         </div>
       </motion.section>
 
       {/* Contact Section */}
       <motion.section
-        className="relative min-h-screen w-full bg-cover bg-center"
+        className="relative min-h-screen w-full bg-cover bg-center flex items-center justify-center"
         style={{ backgroundImage: "url('/images/closer.jpeg')" }}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInUp}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black pointer-events-none"></div>
-        <div className="relative z-20 flex flex-col items-center justify-center min-h-screen text-center text-white px-4 sm:px-6">
-          <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-extrabold font-cormorant mb-6 sm:mb-8 md:mb-10">
-            GET MORE CLOSER
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black pointer-events-none"></div>
+        <div className="relative z-20 flex flex-col items-center justify-center min-h-screen text-center text-white px-4 sm:px-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-cormorant font-extrabold mb-6 drop-shadow-lg">
+            🎁 Special Launching Promo
           </h1>
-          <p className="text-sm sm:text-base md:text-lg font-raleway mb-4 sm:mb-6 px-2 sm:px-5 text-center max-w-2xl">
-            Jl. Kota Bintang Boulevard No. B9, Grand Kota Bintang, Jakasampurna,
-            Bekasi Barat, Bekasi 17145
-          </p>
-          <motion.button
-            onClick={() =>
-              window.open("https://maps.app.goo.gl/BU1jUE4FKi8XNWm16", "_blank")
-            }
-            whileHover={{ scale: 1.05 }}
-            className="flex gap-2 px-4 sm:px-6 md:px-7 rounded py-2 sm:py-3 mb-4 sm:mb-5 bg-[#8dc100] text-sm sm:text-base"
-          >
-            <Map className="w-4 h-4 sm:w-5 sm:h-5" />
-            Direction Using Google Maps
-          </motion.button>
-          <p className="text-sm sm:text-base md:text-lg font-raleway font-extrabold mb-4 sm:mb-6 px-2 sm:px-5 text-center">
-            OR CHAT WITH US ON WHATSAPP
+          <ul className="mb-8 space-y-2 text-left text-lg sm:text-xl md:text-2xl font-raleway font-semibold">
+            <li>✨ Free BPHTB</li>
+            <li>✨ Free Biaya KPR</li>
+            <li>✨ AC 3 Unit</li>
+            <li>✨ Underground Cable</li>
+            <li>✨ Smart Door Lock</li>
+          </ul>
+          <p className="text-base md:text-lg font-raleway font-extrabold mb-4 px-2 sm:px-5 text-center tracking-wide">
+            CHAT WITH US ON WHATSAPP
           </p>
           <motion.button
             onClick={() => window.open("https://wa.me/628126113855", "_blank")}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 px-2 sm:px-5 text-center hover:text-green-400 transition-colors"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 px-8 py-4 rounded-ful text-white shadow-xl hover:bg-[#6fa000] transition-colors"
             whileHover={{ scale: 1.05 }}
           >
             0812 6113 855
           </motion.button>
         </div>
-        {/* footer image — make pointer-events-none so tidak memblok scroll */}
+        {/* Footer image */}
+        <div className="flex items-center justify-end absolute bottom-0 right-0 pointer-events-none">
+          <img src="images/footer.png" className="w-1/2" />
+        </div>
+      </motion.section>
+      <motion.section>
         <div className="flex items-center justify-end absolute bottom-0 right-0 pointer-events-none">
           <img src="images/footer.png" className="w-1/2" />
         </div>

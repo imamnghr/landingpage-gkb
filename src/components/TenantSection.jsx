@@ -75,6 +75,56 @@ const tenants = [
     logo: "/images/richis.jpeg",
     category: "Cafe & Resto",
   },
+
+  // ✅ Tambahan tenant yang kurang
+  {
+    id: 15,
+    name: "All Fresh",
+    logo: "/images/all-fresh.png",
+    category: "Retail",
+  },
+  {
+    id: 16,
+    name: "Marugame",
+    logo: "/images/marugame.jpeg",
+    category: "Japanese Food",
+  },
+  {
+    id: 17,
+    name: "Dekoruma",
+    logo: "/images/logo-dekoruma.png",
+    category: "Decoration & Interior",
+  },
+  {
+    id: 18,
+    name: "Oh Some",
+    logo: "/images/oh-some.png",
+    category: "Cafe & Resto",
+  },
+  {
+    id: 19,
+    name: "FuniFun!",
+    logo: "/images/funifun.png",
+    category: "Entertainment",
+  },
+  {
+    id: 20,
+    name: "Tuku",
+    logo: "/images/tuku.png",
+    category: "Coffee & Beverages",
+  },
+  {
+    id: 21,
+    name: "Ramen 1",
+    logo: "/images/ramen 1.png",
+    category: "Restaurant & Fast Food",
+  },
+    {
+    id: 22,
+    name: "Grand Travello Bekasi",
+    logo: "/images/travello.jpg",
+    category: "Hotel",
+  },
 ];
 
 const fadeInUp = {
@@ -112,18 +162,18 @@ export default function TenantSection() {
           </motion.p>
         </div>
 
-        {/* Manual Scroll Slider */}
+        {/* Slider Container */}
         <div className="flex-1 flex items-center justify-center px-5 sm:px-8 md:px-10">
           <div className="w-full max-w-7xl">
-            {/* Desktop & Tablet */}
+            {/* Desktop & Tablet - 2 Rows */}
             <div
-              className="hidden tenant-wrapper no-scrollbar sm:flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4"
+              className="hidden sm:grid grid-rows-2 grid-flow-col auto-cols-max gap-6 overflow-x-auto no-scrollbar scroll-smooth pb-4"
               style={{ WebkitOverflowScrolling: "touch" }}
             >
               {tenants.map((tenant, index) => (
                 <motion.div
                   key={`${tenant.id}-${index}`}
-                  className="flex-shrink-0 flex flex-col items-center text-center rounded-xl p-6 
+                  className="flex flex-col items-center text-center rounded-xl p-6 
                             hover:bg-white/20 transition-all duration-300 transform hover:scale-105
                             snap-center"
                   whileTap={{ scale: 0.95 }}
@@ -135,7 +185,7 @@ export default function TenantSection() {
                       alt={`${tenant.name} logo`}
                       className="w-full h-full object-cover rounded-full"
                       onError={(e) => {
-                        e.target.src =
+                        e.currentTarget.src =
                           "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMCAyNkM4IDI2IDggMTQgMjAgMTRDMzIgMTQgMzIgMjYgMjAgMjZaTTIwIDIyQzI4IDIyIDI4IDE4IDIwIDE4QzEyIDE4IDEyIDIyIDIwIDIyWiIgZmlsbD0iIzlDQTNBRiIvPgo8L3N2Zz4K";
                       }}
                     />
@@ -149,7 +199,7 @@ export default function TenantSection() {
               ))}
             </div>
 
-            {/* Mobile */}
+            {/* Mobile - tetap 1 baris scroll */}
             <div
               className="flex sm:hidden gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4"
               style={{ WebkitOverflowScrolling: "touch" }}
