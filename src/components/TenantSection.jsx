@@ -119,7 +119,7 @@ const tenants = [
     logo: "/images/ramen 1.png",
     category: "Restaurant & Fast Food",
   },
-    {
+  {
     id: 22,
     name: "Grand Travello Bekasi",
     logo: "/images/travello.jpg",

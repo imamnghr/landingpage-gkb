@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import TenantSection from "@/components/TenantSection";
 import RoomSlider from "@/components/RoomSLider";
 import Image from "next/image";
+import TenantSlider from "@/components/TenantSlider";
+import RomaSlider from "@/components/RomaSlider";
 
 // Variants animasi reusable
 const fadeInUp = {
@@ -126,7 +128,8 @@ export default function Page() {
       </motion.section>
       {/* TenantSection (komponen eksternal) */}
       <div className="relative z-10">
-        <TenantSection />
+        {/* <TenantSection /> */}
+        <TenantSlider />
       </div>
       {/* Residential Section */}
       <motion.section
@@ -144,29 +147,7 @@ export default function Page() {
           </h1>
         </div>
       </motion.section>
-      {/* Maroco Section */}
-      <motion.section
-        className="relative"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-      >
-        <div className="relative min-h-screen w-full flex p-10 justify-between bg-cover bg-center bg-[url(/images/maroco.jpeg)]">
-          <div className="absolute inset-0 z-10 bg-gradient-to-b from-white to-transparent pointer-events-none"></div>
-          <div className="z-20">
-            <p className="text-4xl font-raleway text-black font-extralight">
-              Cluster
-            </p>
-            <h1 className="text-6xl font-cormorant font-extrabold">Maroco</h1>
-          </div>
-          <div className="z-20">
-            <h1 className="text-black font-extrabold text-6xl font-raleway">
-              SOLD <span className="text-red-500">OUT</span>
-            </h1>
-          </div>
-        </div>
-      </motion.section>
+
       {/* Roma Section */}
       <motion.section
         className="relative"
@@ -222,6 +203,9 @@ export default function Page() {
           </div>
         </div>
       </motion.section>
+      <div className="relative z-10">
+        <RomaSlider />
+      </div>
       {/* Room slider (komponen eksternal) */}
       <div className="relative z-10">
         <RoomSlider />
